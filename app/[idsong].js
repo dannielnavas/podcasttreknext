@@ -1,8 +1,11 @@
-import { Stack } from "expo-router";
+import { Stack, useLocalSearchParams } from "expo-router";
+import { Text } from "react-native";
+import { Screen } from "./../components/Screen.jsx";
 
 export default function Detail() {
+  const { idsong } = useLocalSearchParams();
   return (
-    <View className="flex-1 bg-slate-700">
+    <Screen>
       <Stack.Screen
         options={{
           headerStyle: { backgroundColor: "#ffee00" },
@@ -12,7 +15,7 @@ export default function Detail() {
           headerRight: () => {},
         }}
       />
-      <Text className="text-white">Aqui voy ahora</Text>
-    </View>
+      <Text className="text-white">id song {idsong}</Text>
+    </Screen>
   );
 }
