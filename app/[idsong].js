@@ -8,7 +8,7 @@ export default function Detail() {
           headerStyle: { backgroundColor: "#ffee00" },
           headerTintColor: "black",
           headerLeft: () => {},
-          headerTitle: "The Legend of Zelda: Breath of the Wild",
+          headerTitle: "Uss Enterprise",
           headerRight: () => {},
         }}
       />
