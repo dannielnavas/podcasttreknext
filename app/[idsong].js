@@ -4,6 +4,7 @@ import { Screen } from "./../components/Screen.jsx";
 
 export default function Detail() {
   const { idsong } = useLocalSearchParams();
+
   return (
     <Screen>
       <Stack.Screen

@@ -1,48 +1,30 @@
 import { Tabs } from "expo-router";
+import { IconList, IconPodcast } from "../../components/Icons";
 
 export default function TabsLayout() {
-  // return (
-  //   <Tabs
-  //     screenOptions={{
-  //       tabBarStyle: {
-  //         backgroundColor: "#334155",
-  //       },
-  //       tabBarActiveTintColor: "#fff",
-  //       tabBarInactiveTintColor: "#ccc",
-  //     }}
-  //   >
-  //     <Tabs.Screen
-  //       name="index"
-  //       options={{
-  //         title: "Home",
-  //         tabBarIcon: () => null,
-  //       }}
-  //     />
-  //   </Tabs>
-  // );
   return (
     <Tabs
       screenOptions={{
         tabBarStyle: {
-          backgroundColor: "#334155",
+          backgroundColor: "#fff",
         },
         headerShown: false,
-        tabBarActiveTintColor: "#fff",
-        tabBarInactiveTintColor: "#ccc",
+        tabBarActiveTintColor: "#f4a261",
+        tabBarInactiveTintColor: "#2a9d8f",
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
           title: "Home",
-          tabBarIcon: () => null,
+          tabBarIcon: ({ color }) => <IconPodcast color={color} />,
         }}
       />
       <Tabs.Screen
         name="list"
         options={{
           title: "Lista",
-          tabBarIcon: () => null,
+          tabBarIcon: ({ color }) => <IconList color={color} />,
         }}
       />
     </Tabs>
