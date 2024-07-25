@@ -1,10 +1,15 @@
-import { Text, View } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { Text } from "react-native";
 
 const Hero = () => {
   return (
-    <View className="mt-4">
-      <Text>Hero</Text>
-    </View>
+    <LinearGradient
+      // Button Linear Gradient
+      colors={["#4c669f", "#3b5998", "#192f6a"]}
+      className="p-4 rounded-lg justify-between mt-4 h-64"
+    >
+      <Text className="text-lg text-white">Sign in with Facebook</Text>
+    </LinearGradient>
   );
 };
 
