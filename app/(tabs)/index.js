@@ -29,9 +29,16 @@ export default function Index() {
       <Hero />
       <FlatList
         data={episodes}
-        renderItem={({ item }) => <Episodes episode={item} />} // Usa el componente correcto aquí
+        renderItem={({ item }) => <Episodes episode={item} />}
         keyExtractor={(item) => item.name}
-        horizontal
+        contentContainerStyle={{
+          paddingVertical: 0,
+          paddingHorizontal: 0,
+          marginHorizontal: 0,
+          height: 150,
+          minHeight: 150,
+        }}
+        horizontal={true}
         className="mt-4"
       />
       <Main />
