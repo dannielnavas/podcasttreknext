@@ -35,23 +35,24 @@ export default function Index() {
     },
   ];
   return (
-    <View className="p-4 w-screen bg-slate-50 h-screen">
-      <HeaderPodcast title="Star Trek Colombia" />
-      <Hero />
-      <SafeAreaView>
-        <ScrollView
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          pagingEnabled={true}
-          className="mt-4"
-        >
-          {episodes.slice(2, 5).map((episode, index) => (
-            <Episodes key={index} episode={episode} />
-          ))}
-        </ScrollView>
-      </SafeAreaView>
-      <Main />
-      <SafeAreaView>
+    <SafeAreaView className="flex flex-1">
+      <View className="p-4">
+        <HeaderPodcast title="Star Trek Colombia" />
+        <Hero />
+        <SafeAreaView>
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            pagingEnabled={true}
+            className="mt-4 h-56"
+          >
+            {episodes.slice(2, 5).map((episode, index) => (
+              <Episodes key={index} episode={episode} />
+            ))}
+          </ScrollView>
+        </SafeAreaView>
+        <Main />
+        {/* <SafeAreaView> */}
         <ScrollView
           horizontal={true}
           showsHorizontalScrollIndicator={false}
@@ -62,10 +63,9 @@ export default function Index() {
             <Recommendations key={index} episode={episode} />
           ))}
         </ScrollView>
-      </SafeAreaView>
-      <SafeAreaView>
-        <Player track={episodes[0]} />
-      </SafeAreaView>
-    </View>
+        {/* </SafeAreaView> */}
+      </View>
+      <Player track={episodes[0]} />
+    </SafeAreaView>
   );
 }
