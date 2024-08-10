@@ -1,4 +1,5 @@
-import { FlatList, View } from "react-native";
+import { SafeAreaView, ScrollView, View } from "react-native";
+// import { ScrollView } from "react-native-gesture-handler";
 import { Episodes } from "../../components/Episodes";
 import { HeaderPodcast } from "../../components/HeaderPodcast";
 import { Hero } from "../../components/Hero";
@@ -6,7 +7,6 @@ import { Main } from "../../components/Main";
 
 export default function Index() {
   const episodes = [
-    // Cambié el nombre de la variable a minúsculas para seguir las convenciones de JavaScript
     {
       image: "https://picsum.photos/200/300",
       name: "Episode 1",
@@ -27,20 +27,18 @@ export default function Index() {
     <View className="p-4 w-screen bg-slate-50 h-screen">
       <HeaderPodcast title="Star Trek Colombia" />
       <Hero />
-      <FlatList
-        data={episodes}
-        renderItem={({ item }) => <Episodes episode={item} />}
-        keyExtractor={(item) => item.name}
-        contentContainerStyle={{
-          paddingVertical: 0,
-          paddingHorizontal: 0,
-          marginHorizontal: 0,
-          height: 150,
-          minHeight: 150,
-        }}
-        horizontal={true}
-        className="mt-4"
-      />
+      <SafeAreaView>
+        <ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          pagingEnabled={true}
+          className="mt-4"
+        >
+          {episodes.map((episode, index) => (
+            <Episodes key={index} episode={episode} />
+          ))}
+        </ScrollView>
+      </SafeAreaView>
       <Main />
     </View>
   );
