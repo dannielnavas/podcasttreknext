@@ -1,29 +1,29 @@
 import { AntDesign, Entypo, FontAwesome } from "@expo/vector-icons";
 
-export const IconPodcast = (props) => (
-  <FontAwesome name="podcast" size={24} color={props.color} {...props} />
+export const IconPodcast = ({ color }) => (
+  <FontAwesome name="podcast" size={24} color={color} />
 );
 
-export const IconList = (props) => (
-  <Entypo name="list" size={24} color={props.color} {...props} />
+export const IconList = ({ color }) => (
+  <Entypo name="list" size={24} color={color} />
 );
 
-export const IconNotification = (props) => (
-  <AntDesign name="bells" size={24} color={props.color} {...props} />
+export const IconNotification = ({ color }) => (
+  <AntDesign name="bells" size={24} color={color} />
 );
 
-export const IconPlay = (props) => (
-  <FontAwesome name="play" size={32} color={props.color} {...props} />
+export const IconPlay = ({ color }) => (
+  <FontAwesome name="play" size={32} color={color} />
 );
 
-export const IconPause = (props) => (
-  <FontAwesome name="pause" size={24} color={props.color} {...props} />
+export const IconPause = ({ color }) => (
+  <FontAwesome name="pause" size={24} color={color} />
 );
 
-export const IconNext = (props) => (
-  <AntDesign name="stepforward" size={24} color={props.color} {...props} />
+export const IconNext = ({ color }) => (
+  <AntDesign name="stepforward" size={24} color={color} />
 );
 
-export const IconPrevious = (props) => (
-  <AntDesign name="stepbackward" size={24} color={props.color} {...props} />
+export const IconPrevious = ({ color }) => (
+  <AntDesign name="stepbackward" size={24} color={color} />
 );
