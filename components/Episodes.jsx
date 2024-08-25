@@ -4,7 +4,7 @@ import { SET_CURRENT_TRACK, SET_STATE } from "./../store/actions/types";
 
 const Episodes = ({ episode }) => {
   const dispatch = useDispatch();
-  const { name, image } = episode;
+  const { title, thumbnail } = episode;
 
   const setActualTrack = (song) => {
     dispatch({
@@ -19,14 +19,14 @@ const Episodes = ({ episode }) => {
 
   return (
     <Pressable
-      className="w-96 h-48 bg-sky-700 mr-2 rounded-lg p-1"
+      className="w-96 h-24 bg-sky-700 mr-2 rounded-lg p-1 flex flex-row items-center"
       onPress={() => setActualTrack(episode)}
     >
       <Image
-        source={{ uri: image }}
+        source={{ uri: thumbnail }}
         className="w-48 h-full aspect-auto object-contain rounded-lg mr-4"
       />
-      <Text className="text-white">{name}</Text>
+      <Text className="text-white truncate text-1xl">{title}</Text>
     </Pressable>
   );
 };
