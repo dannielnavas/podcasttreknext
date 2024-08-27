@@ -1,8 +1,8 @@
 import { Image, Pressable, Text } from "react-native";
 import { useDispatch } from "react-redux";
-import { SET_CURRENT_TRACK, SET_STATE } from "./../store/actions/types";
+import { SET_CURRENT_TRACK, SET_STATE } from "../store/actions/types";
 
-const Episodes = ({ episode }) => {
+const DataList = ({ episode }) => {
   const dispatch = useDispatch();
   const { title, thumbnail } = episode;
 
@@ -19,7 +19,7 @@ const Episodes = ({ episode }) => {
 
   return (
     <Pressable
-      className="w-80 h-24 bg-cyan-600 mr-2 rounded-lg flex flex-row items-center"
+      className="w-full h-24 bg-red-400 mr-2 rounded-lg flex flex-row items-center"
       onPress={() => setActualTrack(episode)}
     >
       <Image
@@ -31,4 +31,4 @@ const Episodes = ({ episode }) => {
   );
 };
 
-export { Episodes };
+export { DataList };

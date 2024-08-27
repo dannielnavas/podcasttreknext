@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import { SafeAreaView, ScrollView, View } from "react-native";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Episodes } from "../../components/Episodes";
 import { HeaderPodcast } from "../../components/HeaderPodcast";
 import { Hero } from "../../components/Hero";
 import { Main } from "../../components/Main";
 import { Player } from "../../components/Player";
 import { Recommendations } from "../../components/Recommendations";
+import { SET_TRACKS } from "../../store/actions/types";
 
 export default function Index() {
   const statePlayer = useSelector((state) => state.status.status);
   const [episodes, setEpisodes] = useState([]);
   const [shortCast, setShortCast] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch("http://192.168.10.19:3000/audio/podcast-list")
@@ -19,6 +21,10 @@ export default function Index() {
       .then((data) => {
         setEpisodes(data?.episodes);
         setShortCast(data?.shortcast);
+        dispatch({
+          type: SET_TRACKS,
+          payload: data,
+        });
       });
   }, []);
 
@@ -36,8 +42,8 @@ export default function Index() {
         >
           {episodes
             .slice(2, 5)
-            .toReversed()
-            .map((episode, index) => (
+            .reverse()
+            .map((episode) => (
               <Episodes key={episode.name} episode={episode} />
             ))}
         </ScrollView>
@@ -50,7 +56,7 @@ export default function Index() {
           pagingEnabled={true}
           className="mt-4"
         >
-          {shortCast.slice(0, 4).map((episode, index) => (
+          {shortCast.slice(0, 4).map((episode) => (
             <Recommendations key={episode.name} episode={episode} />
           ))}
         </ScrollView>

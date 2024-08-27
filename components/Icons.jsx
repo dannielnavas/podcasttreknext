@@ -1,11 +1,11 @@
 import { AntDesign, Entypo, FontAwesome } from "@expo/vector-icons";
 
 export const IconPodcast = ({ color }) => (
-  <FontAwesome name="podcast" size={24} color={color} />
+  <FontAwesome name="podcast" size={32} color={color} />
 );
 
 export const IconList = ({ color }) => (
-  <Entypo name="list" size={24} color={color} />
+  <Entypo name="list" size={32} color={color} />
 );
 
 export const IconNotification = ({ color }) => (
