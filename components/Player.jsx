@@ -1,13 +1,32 @@
-import { useState } from "react";
+import { Audio } from "expo-av"; // Add this import statement
+import { useEffect, useState } from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import { useSelector } from "react-redux";
 import { IconPause, IconPlay } from "./Icons";
 
 const Player = () => {
+  const [sound, setSound] = useState();
   const [playOrPause, setPlayOrPause] = useState(true);
   const actualSong = useSelector((state) => state.tracks.currentTrack);
   if (!actualSong) return null;
   const { thumbnail, title } = actualSong;
+
+  useEffect(() => {
+    fetchSong();
+  }, [actualSong]);
+
+  const fetchSong = async () => {
+    try {
+      const songUrl = "http://192.168.10.19:3000/audio/" + actualSong?.name + ".mp3";
+      const { sound } = await Audio.Sound.createAsync({ uri: songUrl });
+      setSound(sound);
+      await sound.playAsync();
+
+      return sound;
+    } catch (error) {
+      console.error("Error fetching song:", error);
+    }
+  };
 
   return actualSong ? (
     <View className="min-w-full h-20 bg-slate-700 absolute left-0 right-0 bottom-0 z-10 flex flex-row px-2 items-center justify-between">
