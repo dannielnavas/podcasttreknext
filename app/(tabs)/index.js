@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
 import { SafeAreaView, ScrollView, View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Episodes } from "../../components/Episodes";
 import { HeaderPodcast } from "../../components/HeaderPodcast";
 import { Hero } from "../../components/Hero";
 import { Main } from "../../components/Main";
-import { Player } from "../../components/Player";
 import { Recommendations } from "../../components/Recommendations";
 import { SET_TRACKS } from "../../store/actions/types";
 
 export default function Index() {
-  const statePlayer = useSelector((state) => state.status.status);
   const [episodes, setEpisodes] = useState([]);
   const [shortCast, setShortCast] = useState([]);
   const dispatch = useDispatch();
@@ -61,7 +59,7 @@ export default function Index() {
           ))}
         </ScrollView>
       </View>
-      {statePlayer && <Player />}
+      {/* {statePlayer && <Player />} */}
     </SafeAreaView>
   );
 }

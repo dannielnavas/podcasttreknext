@@ -1,7 +1,6 @@
 import { FlatList, Text, View } from "react-native";
 import { useSelector } from "react-redux";
 import { DataList } from "../../components/DataList";
-import { Player } from "./../../components/Player";
 
 export default function Shortcast() {
   const shortCast = useSelector((state) => state.playPause.tracks.shortcast);
@@ -16,7 +15,7 @@ export default function Shortcast() {
         renderItem={({ item }) => <DataList episode={item} />}
         ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
       />
-      {statePlayer && <Player />}
+      {/* {statePlayer && <Player />} */}
     </View>
   );
 }
