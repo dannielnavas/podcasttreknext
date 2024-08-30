@@ -1,4 +1,5 @@
 import {
+  SET_AUDIO,
   SET_CURRENT_TRACK,
   SET_PLAY_OR_PAUSE,
   SET_STATE,
@@ -26,6 +27,11 @@ export const tracksReducer = (state = [], action) => {
       return {
         ...state,
         status: action.payload,
+      };
+    case SET_AUDIO:
+      return {
+        ...state,
+        audio: action.payload,
       };
     default:
       return state;

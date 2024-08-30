@@ -6,6 +6,7 @@ const rootReducer = combineReducers({
   track: tracksReducer,
   status: tracksReducer,
   playPause: tracksReducer,
+  audio: tracksReducer,
 });
 
 export { rootReducer };

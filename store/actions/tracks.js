@@ -1,4 +1,5 @@
 import {
+  SET_AUDIO,
   SET_CURRENT_TRACK,
   SET_PLAY_OR_PAUSE,
   SET_STATE,
@@ -23,4 +24,9 @@ export const setPlayOrPause = (play) => ({
 export const setStatus = (status) => ({
   type: SET_STATE,
   payload: status,
+});
+
+export const setAudio = (audio) => ({
+  type: SET_AUDIO,
+  payload: audio,
 });
