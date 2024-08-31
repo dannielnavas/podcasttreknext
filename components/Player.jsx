@@ -26,7 +26,6 @@ const Player = () => {
       }
 
       const songUrl = "http://192.168.10.19:3000/audio/" + actualSong?.name + ".mp3";
-      console.log("songUrl", songUrl);
       const { sound } = await Audio.Sound.createAsync(
         { uri: songUrl },
         { shouldPlay: true }
@@ -63,7 +62,7 @@ const Player = () => {
       <View className="min-w-full w-screen h-20 flex flex-row px-2 items-center justify-between z-10 bg-slate-700">
         <Image source={{ uri: thumbnail }} className="w-16 h-16 rounded-lg" />
         <View className="w-52 h-auto flex flex-row justify-center">
-          <Text className="text-slate-50 text-lg h-16 truncate">{title}</Text>
+          <Text className="text-slate-50 text-base h-16 w-48 truncate">{title}</Text>
         </View>
         <View className="w-10 h-auto flex flex-row justify-center">
           <Pressable onPress={playPause}>
