@@ -13,7 +13,7 @@ const Player = () => {
   if (!actualSong) return null;
   const { thumbnail, title } = actualSong;
   const dispatch = useDispatch();
-  const key = "example-key"; // Add your key here
+  const key = "f70611f2-de77-4dd7-970e-7a32273a5e37"; // Add your key here
 
   useEffect(() => {
     fetchSong();
@@ -30,6 +30,15 @@ const Player = () => {
         { shouldPlay: true }
       );
       setSoundActual(sound);
+
+      //  sonar en segundo plano
+      await Audio.setAudioModeAsync({
+        allowsRecordingIOS: false,
+        playsInSilentModeIOS: true,
+        shouldDuckAndroid: true,
+        playThroughEarpieceAndroid: false,
+        staysActiveInBackground: true,
+      });
 
       await sound.playAsync();
       dispatch({

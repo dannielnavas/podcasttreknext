@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
 import { useSelector } from "react-redux";
-import { IconList, IconPodcast } from "../../components/Icons";
+import { IconHome, IconList, IconPodcast } from "../../components/Icons";
 import { Player } from "../../components/Player";
 
 export default function TabsLayout() {
@@ -28,7 +28,7 @@ export default function TabsLayout() {
           name="index"
           options={{
             title: "Inicio",
-            tabBarIcon: ({ color }) => <IconPodcast color={color} />,
+            tabBarIcon: ({ color }) => <IconHome color={color} />,
           }}
         />
         <Tabs.Screen
