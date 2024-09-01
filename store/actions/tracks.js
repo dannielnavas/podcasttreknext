@@ -30,3 +30,8 @@ export const setAudio = (audio) => ({
   type: SET_AUDIO,
   payload: audio,
 });
+
+export const setPlayOrPauseActual = (play) => ({
+  type: SET_PLAY_OR_PAUSE_ACTUAL,
+  payload: play,
+});

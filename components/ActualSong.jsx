@@ -2,13 +2,15 @@ import Slider from "@react-native-community/slider";
 import { BlurView } from "expo-blur";
 import { useEffect, useState } from "react";
 import { Image, ImageBackground, Pressable, Text, View } from "react-native";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { SET_PLAY_OR_PAUSE_ACTUAL } from "../store/actions/types";
 import { IconPause, IconPlay } from "./Icons";
 
 const ActualSong = () => {
+  const dispatch = useDispatch();
   const actualSong = useSelector((state) => state.tracks.currentTrack);
   const sound = useSelector((state) => state.tracks.audio);
-  const [playOrPause, setPlayOrPause] = useState(true);
+  const playOrPause = useSelector((state) => state.tracks.playPause);
   if (!actualSong) return null;
   const { thumbnail, title } = actualSong;
   const [duration, setDuration] = useState(0);
@@ -36,7 +38,10 @@ const ActualSong = () => {
     } else {
       await sound.playAsync();
     }
-    setPlayOrPause(!playOrPause);
+    dispatch({
+      type: SET_PLAY_OR_PAUSE_ACTUAL,
+      payload: !playOrPause,
+    });
   };
 
   return (

@@ -14,7 +14,7 @@ export default function Index() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch("http://192.168.10.19:3000/audio/podcast-list")
+    fetch("https://bk-podcasttrek.vercel.app/audio/podcast-list")
       .then((response) => response.json())
       .then((data) => {
         setEpisodes(data?.episodes);

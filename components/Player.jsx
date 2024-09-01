@@ -3,16 +3,17 @@ import { Link } from "expo-router";
 import { useEffect, useState } from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_AUDIO } from "../store/actions/types";
+import { SET_AUDIO, SET_PLAY_OR_PAUSE_ACTUAL } from "../store/actions/types";
 import { IconPause, IconPlay } from "./Icons";
 
 const Player = () => {
   const [soundActual, setSoundActual] = useState();
-  const [playOrPause, setPlayOrPause] = useState(true);
   const actualSong = useSelector((state) => state.tracks.currentTrack);
+  const playOrPause = useSelector((state) => state.tracks.playPause);
   if (!actualSong) return null;
   const { thumbnail, title } = actualSong;
   const dispatch = useDispatch();
+  const key = "f70611f2-de77-4dd7-970e-7a32273a5e37";
 
   useEffect(() => {
     fetchSong();
@@ -20,12 +21,10 @@ const Player = () => {
 
   const fetchSong = async () => {
     try {
-      // suena dos veces un sonido diferente
       if (soundActual) {
         await soundActual.unloadAsync();
       }
-
-      const songUrl = "http://192.168.10.19:3000/audio/" + actualSong?.name + ".mp3";
+      const songUrl = `${actualSong.song}${key}`;
       const { sound } = await Audio.Sound.createAsync(
         { uri: songUrl },
         { shouldPlay: true }
@@ -33,7 +32,10 @@ const Player = () => {
       setSoundActual(sound);
 
       await sound.playAsync();
-
+      dispatch({
+        type: SET_PLAY_OR_PAUSE_ACTUAL,
+        payload: true,
+      });
       dispatch({
         type: SET_AUDIO,
         payload: sound,
@@ -51,7 +53,10 @@ const Player = () => {
     } else {
       await soundActual.playAsync();
     }
-    setPlayOrPause(!playOrPause);
+    dispatch({
+      type: SET_PLAY_OR_PAUSE_ACTUAL,
+      payload: !playOrPause,
+    });
   };
 
   return actualSong ? (

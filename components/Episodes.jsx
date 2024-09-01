@@ -11,6 +11,7 @@ const Episodes = ({ episode }) => {
       type: SET_STATE,
       payload: true,
     });
+
     dispatch({
       type: SET_CURRENT_TRACK,
       payload: song,
