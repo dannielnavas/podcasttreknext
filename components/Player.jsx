@@ -13,7 +13,7 @@ const Player = () => {
   if (!actualSong) return null;
   const { thumbnail, title } = actualSong;
   const dispatch = useDispatch();
-  const key = "f70611f2-de77-4dd7-970e-7a32273a5e37";
+  const key = "example-key"; // Add your key here
 
   useEffect(() => {
     fetchSong();
