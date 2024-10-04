@@ -14,7 +14,7 @@
     "@react-native-community/slider": "4.5.2",
     "@reduxjs/toolkit": "^2.2.7",
     "@types/react": "~18.2.79",
-    "expo": "~51.0.31",
+    "expo": "~51.0.36",
     "expo-av": "~14.0.7",
     "expo-constants": "~16.0.2",
     "expo-linear-gradient": "~13.0.2",
@@ -30,7 +30,7 @@
     "redux": "^5.0.1",
     "typescript": "~5.3.3",
     "expo-blur": "~13.0.2",
-    "expo-updates": "~0.25.24"
+    "expo-updates": "~0.25.26"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

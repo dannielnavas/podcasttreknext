@@ -1,15 +1,20 @@
-import { LinearGradient } from "expo-linear-gradient";
-import { Text } from "react-native";
+import { ImageBackground, View } from "react-native";
 
 const Hero = () => {
   return (
-    <LinearGradient
+    <View
       // Button Linear Gradient star trek
       colors={["#4c669f", "#3b5998", "#192f6a"]}
-      className="p-4 rounded-lg justify-between mt-4 h-64"
+      className="p-2 rounded-lg mt-4 h-64 w-full"
     >
-      <Text className="text-lg text-white">Publicidad star trek</Text>
-    </LinearGradient>
+      <ImageBackground
+        source={{
+          uri: "https://res.cloudinary.com/dgnj7t1py/image/upload/v1728006893/w2wkmdlizoowvkolvxkr.jpg",
+        }}
+        resizeMode="center"
+        className="w-full h-full bg-center bg-cover"
+      />
+    </View>
   );
 };
 
